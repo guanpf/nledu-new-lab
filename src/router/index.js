@@ -43,31 +43,27 @@ export const constantRoutes = [
     component: () => import("@/components/login/view/activate")
     // component: () => import("@/layout/loading.vue")
   },
-  // {
-  //   path: "/404",
-  //   name: "404",
-  //   component: () => import("@/layout/404.vue")
-  // },
-  // {
-  //   path: "/ui",
-  //   name: '',
-  //   component: ()=> import("@/layout/frame/Index"),
-  //   children: [{
-  //     path: '',
-  //     name: 'ui',
-  //     component: () => import("@/layout/frame/Example")
-  //   }]
-  // },
-  // {
-  //   path: "/rtcpreview",
-  //   name: "rtcpreview",
-  //   component: () => import("@/module/etmlab/view/course/rtcPreview")
-  // },
-  // {
-  //   path: "/practice/rtcpreview",
-  //   name: "practice-rtcpreview",
-  //   component: () => import("@/module/etmlab/view/course/rtcPreview")
-  // },
+
+  //运维端 
+    //客户管理
+    {
+      path: "/custommanage",
+      name: "custommanage",
+      //name: "eres"
+      // redirect: "/index"
+      component: () => import("@/module/operation/view/custommanage")
+      // component: () => import("@/layout/loading.vue")
+    },
+    //创建客户
+    {
+      path: "/addcustom",
+      name: "addcustom",
+      //name: "eres"
+      // redirect: "/index"
+      component: () => import("@/module/operation/view/addcustom")
+      // component: () => import("@/layout/loading.vue")
+    },
+ 
   // ...loginRouter,
   // ...eonline,
 ];

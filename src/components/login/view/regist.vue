@@ -108,6 +108,20 @@
                 }
                 callback();
             };
+            var checkEmail = (rule, value, callback) => {
+                /**
+                 * 验证邮箱正则
+                 */
+                if(value==''){
+                    callback(new Error('请输入邮箱'));
+                }else if (value !== '') {
+                    var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+                    if(!reg.test(value)){
+                        callback(new Error('请输入有效的邮箱'));
+                    }
+                }
+                callback();
+            };
             return {
                 sid: sid,
                 now: +new Date(),
@@ -128,7 +142,7 @@
                         { required: true, message: "请输入账户名", trigger: "blur" }
                     ],
                     email: [
-                        { required: true, message: "请输入邮箱", trigger: "blur" }
+                        { required: true,validator: checkEmail, trigger: "blur" }
                     ],
                     phone: [
                         { required: true, validator: checkPhone, trigger: "blur" }
