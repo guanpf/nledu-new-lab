@@ -1,0 +1,26 @@
+
+#####################################################################
+#####################前端工程####################
+#####################################################################
+- hosts:
+    - deploy
+  vars:
+    app_name: nledu-web
+    app_version: test-v2.0.0.0
+  tasks:
+    - name: 导入镜像：前端工程
+      shell: docker login imageserver:8082 -u admin -p admin123 && docker load -i {{deploy_files_path}}/{{ app_name }}:{{ app_version }}.tar && docker push imageserver:8082/{{ app_name }}:{{ app_version }}
+      when: (is_upload_registry) == 'true'
+- hosts:
+    - kube-master-main
+  vars:
+    app_name: nledu_web
+  tasks:
+    - name: 部署-前端工程-关闭旧版本（如有出现错误，请忽略）
+      shell:  kubectl delete -f {{ deploy_script_path }}/deployment_application/ETMLab/{{ app_name }}/docker/deployment-{{ app_name }}.yaml && sleep 5
+      ignore_errors: yes
+    - name: 部署-前端工程
+      shell:  kubectl create -f {{ deploy_script_path }}/deployment_application/ETMLab/{{ app_name }}/docker/deployment-{{ app_name }}.yaml
+      ignore_errors: yes
+
+

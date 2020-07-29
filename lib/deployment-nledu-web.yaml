@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nledu-web
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nledu-web
+    spec:
+      nodeSelector:
+        business: business
+      containers:
+      - name: nledu-web
+        image: imageserver:8082/nledu-web
+        imagePullPolicy: Always
+        env:
+        - name: TZ
+          value: Asia/Shanghai
+        - name: appenv
+          value: dev
+        ports:
+        - containerPort: 8098
+          hostPort: 8098
+        resources:
+           requests:
+             cpu: 0.5
+             memory: 512Mi
+           limits:
+             cpu: 2
+             memory: 2Gi
+        volumeMounts:
+        - name: logpath
+          mountPath: /var/log/nginx
+      volumes:
+      - name: logpath
+        hostPath:
+          path: /home/log/nledu-web
+      imagePullSecrets:
+      - name: docker-secret

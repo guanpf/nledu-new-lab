@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>icon/required</title>
+    <desc>Created with Sketch.</desc>
+    <g id="UI规范" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="web-1920-5表单1" transform="translate(-505.000000, -316.000000)" fill="#FFB32C">
+            <g id="01常规输入框" transform="translate(152.000000, 268.000000)">
+                <g id="必填项" transform="translate(353.000000, 46.000000)">
+                    <g id="边距-">
+                        <g id="icon/required" transform="translate(0.000000, 2.000000)">
+                            <polygon id="icon_必填" points="4.23244547 0 5.76751936 0 5.61403776 4.45204401 9.51753548 2.89950305 10 4.40641407 5.96487628 5.66216511 8.68417381 9.01828493 7.49993844 10 4.99998241 6.39276903 2.50006156 10 1.31582619 9.01828493 4.03513544 5.66216511 0 4.40641407 0.482429347 2.89950305 4.40786473 4.45204401"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nledu-web
+spec:
+  #externalTrafficPolicy: Local
+  type: NodePort
+  ports:
+    - port: 8098
+      nodePort: 28098
+  selector:
+    app: nledu-web

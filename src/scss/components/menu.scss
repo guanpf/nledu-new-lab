@@ -1,0 +1,75 @@
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+
+//@import "../element/mixins/mixins";
+//@import "../element/common/var";
+$namespace: nl;
+
+$left-menu-width-shrink: 50px;
+$left-menu-width-stretch: 500px;
+//$left-menu-background-color: #1b1931;
+
+
+@include b(left-menu-container) {
+  width: $left-menu-width-shrink;
+  overflow: visible;
+
+  @include e(inner) {
+    color: #ffffff;
+    z-index: 10;
+    position: relative;
+    transition: all 0.3s;
+    width: $left-menu-width-shrink;
+    overflow: hidden;
+    height: 100%;
+    @include m(hover) {
+      width: $left-menu-width-stretch;
+    }
+  }
+}
+
+@include b(left-menu-wrap) {
+  position: relative;
+  height: 100%;
+  width: 100vw;
+  @include e(main) {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 100%;
+    background: $left-menu-background-color;
+  }
+
+  @include e(submenu) {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #000;
+    vertical-align: top;
+  }
+}
+
+@include b(left-menu-main) {
+  @include e(item){
+    height: 50px;
+    line-height: 50px;
+    padding-left: 15px;
+    &:hover {
+      background-color: #5070e4;
+    }
+  }
+  @include e(icon) {
+    margin-right: 25px;
+  }
+}
+
+@include b(left-menu-submenu) {
+  box-shadow: 0 0 6px 0 #999999;
+  @include e(item) {
+    height: 50px;
+    line-height: 50px;
+    width: 200px;
+    padding-left: 30px;
+    &:hover {
+      background-color: $--background-color-base;
+    }
+  }
+}

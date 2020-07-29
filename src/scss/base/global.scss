@@ -1,0 +1,127 @@
+.fh,
+.full-height,
+.fullHeight {
+  height: 100%;
+}
+
+.fw {
+  width: 100%;
+}
+
+.tc {
+  text-align: center;
+}
+
+.tl {
+  text-align: left;
+}
+
+.tr {
+  text-align: right;
+}
+
+.pr {
+  position: relative;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.bfc {
+  position: relative;
+  overflow: auto;
+}
+
+.abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.pd0 {
+  padding: 0;
+}
+
+.noImg {
+  img {
+    display: none;
+  }
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.overflow-y {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.inline-block-top {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.inline-block-middle {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hide-scroll-bar {
+  &::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0;
+  }
+
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
+.hr {
+  border: none;
+  border-top: 1px solid #d2d2d2;
+}
+
+.over-hidden {
+  overflow: hidden;
+}
+
+.cursor-pointer, .pointer{
+  cursor: pointer;
+}
+.position-center{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.default-page-bg{
+  border-radius: 3px;
+  box-shadow: 0 0 3px #dddddd;
+  background-color: #ffffff;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+.message-z-index-9999 {
+  z-index: 9999;
+}

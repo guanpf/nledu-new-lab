@@ -1,0 +1,21 @@
+$--color-primary: #4c87fb !default;
+
+$--color-success: #2ac853 !default;
+$--color-warning: #ff8400 !default;
+$--color-danger: #ff544f !default;
+//$--color-info: #e1e1e1 !default;
+
+
+$left-menu-background-color: #1b1931;
+
+
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+/* Break-point
+--------------------------*/
+$--sm: 768px !default;
+$--md: 1200px !default;
+$--lg: 1600px !default;
+$--xl: 1920px !default;
+
+@import "~element-ui/packages/theme-chalk/src/index";

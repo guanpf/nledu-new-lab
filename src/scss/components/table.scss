@@ -1,0 +1,15 @@
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+
+@include b(table) {
+  @include e(header){
+    border: $--table-border;
+  }
+  td {
+    @include pseudo(first-child) {
+        border-left: 1px solid $--border-color-lighter;
+    }
+    @include pseudo(last-child) {
+        border-right: 1px solid $--border-color-lighter;
+    }
+  }
+}

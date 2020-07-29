@@ -1,0 +1,45 @@
+//@import "nlconfig";
+body {
+  font-family: Arial,"Microsoft YaHei","微软雅黑",elvetica,sans-serif,"宋体";
+  font-size: 14px;
+}
+
+h1, .h1 {
+  font-size: $font-size-h1;
+}
+
+h2, .h2 {
+  font-size: $font-size-h2;
+}
+
+h3, .h3 {
+  font-size: $font-size-h3;
+}
+
+.font-stress {
+  color: $font-color-stress;
+}
+
+.font-notice {
+  color: $font-color-notice;
+}
+
+.font-normal {
+  color: $font-color-normal;
+}
+
+.font-danger {
+  color: $font-color-danger;
+}
+
+.font-highlight {
+  color: $font-color-highlight;
+}
+
+//@font-face {
+//  font-family: 'open-sans';
+//  src: url("~@/scss/fonts/NotoSansHans-Regular.otf"),
+//  url("~@/scss/fonts/SourceHanSerifCN-Regular.ttf");
+//}
+
+

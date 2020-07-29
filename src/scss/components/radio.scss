@@ -1,0 +1,19 @@
+//@import "../element/mixins/mixins";
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+
+@include b(radio) {
+  @include e(inner){
+    border-color: $--border-color-base !important;
+    background: $--color-white !important;
+  }
+}
+
+@include b(radio) {
+  @include e(inner) {
+    @include pseudo(after) {
+      width: 10px;
+      height: 10px;
+      background: $--color-success;
+    }
+  }
+}

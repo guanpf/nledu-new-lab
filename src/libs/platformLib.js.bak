@@ -1,0 +1,127 @@
+import {Cookie} from "@/libs/storage";
+import {
+  MODULE_RACE_PRACTICE, MODULE_MANAGER, MODULE_LEARNING, MODULE_EXAM, MODULE_PRACTICE, MODULE_RACE,
+  PATH_EXAM, PATH_LEARNING, PATH_MANAGER, PATH_PRACTICE, PATH_RACE, PATH_RACE_PRACTICE, PATH_BUSI, MODULE_BUSI,
+  NAME_BUSI,NAME_EXAM,NAME_LEARNING,NAME_MANAGER,NAME_PRACTICE,NAME_RACE,NAME_RACE_PRACTICE
+} from "@/config/constants";
+
+export const getPlatformName = () => {
+  if (process.env.platform) {
+    return process.env.platform;
+  }
+  let platformName = '';
+
+  switch (true) {
+    case isPractice():
+      platformName = 'practice';
+      break;
+    case isExam():
+      platformName = 'exam';
+      break;
+    case isManager():
+      platformName = 'manager';
+      break;
+    case isRacePractice():
+      platformName = 'racepractice';
+      break;
+<<<<<<< Updated upstream
+    case isRace():
+      platformName = 'race';
+      break;
+    case isRaceManage():
+      platformName = 'racemanage'
+=======
+    case isBusi():
+      platformName = 'racemanage';
+      break;
+    case isErace():
+      platformName = 'erace';
+      break;
+
+>>>>>>> Stashed changes
+  }
+
+  return platformName;
+};
+
+const isTheModule = (moduleName) => {
+  let moduleRegx = `^\/${moduleName}$|^\/${moduleName}\/`;
+  let regx = new RegExp(moduleRegx);
+  return regx.test(window.location.pathname);
+}
+export const isPractice = () => {
+  return isTheModule(PATH_PRACTICE)
+};
+
+export const isExam = () => {
+  return isTheModule(PATH_EXAM)
+  // let regxExamModule = /^\/exam$|^\/exam\//;
+  // return regxExamModule.test(window.location.pathname);
+}
+
+export const isManager = () => {
+  return isTheModule(PATH_MANAGER)
+}
+
+export const isRacePractice = () => {
+  return isTheModule(PATH_RACE_PRACTICE)
+}
+
+export const isBusi = () => {
+  return isTheModule(PATH_BUSI)
+}
+
+export const isErace = ()=> {
+  return isTheModule(PATH_RACE)
+}
+
+
+export const getPlatformToken = (platform = '') => {
+  // 后端支持单点登录了，不需要再根据平台名取token
+  return Cookie.getItem(`access_token`);
+}
+export const setPlatformToken = (platform = '', token, expire) => {
+  Cookie.setItem(`access_token`, token, expire)
+}
+
+export const removePlatformToken = (platform = '') => {
+  Cookie.removeItem(`access_token`);
+}
+
+export const getPlatformLoginPage = (platform = '') => {
+  platform = platform || getPlatformName()
+  let pages = {
+    practice: 'practice-index',
+    exam: 'exam-login',
+    manager: 'manager-login',
+    racepractice: 'racepractice-login',
+<<<<<<< Updated upstream
+    racemanage: 'racemanage-login',
+    race: 'race-login'
+=======
+    racemanage: 'ebusi-login'
+
+>>>>>>> Stashed changes
+  }
+  return pages[platform] || 'login'
+}
+
+
+export const getPlatformCode = () => {
+  switch (true) {
+    case isPractice():
+      return MODULE_PRACTICE;
+    case isRacePractice():
+      return MODULE_RACE_PRACTICE;
+    case isManager():
+      return MODULE_MANAGER;
+    case isExam():
+      return MODULE_EXAM;
+    case isBusi():
+      return MODULE_BUSI;
+    case isErace():
+      return MODULE_RACE
+    default:
+      return MODULE_LEARNING;
+  }
+}

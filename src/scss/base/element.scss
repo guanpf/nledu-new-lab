@@ -1,0 +1,11 @@
+.el-loading-mask{
+  z-index: 1900 !important;
+}
+.el-scrollbar__wrap{
+  // firefox margin-right 负值用于隐藏滚动条，会导致宽度变大，高度不足不出现滚动条的时候出现float right位移的问题
+  overflow-y: scroll !important;
+}
+
+.el-select .el-input .el-select__caret{
+  line-height: 30px;
+}

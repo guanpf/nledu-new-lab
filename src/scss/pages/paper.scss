@@ -1,0 +1,63 @@
+//@import "../element/mixins/mixins";
+// todo 待改造
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+//@import "../element/common/var";
+//@import "nlconfig";
+$namespace: nl;
+
+@include b(paper) {
+  background-color: #ffffff;
+  @include e(title) {
+    background-color: $--color-primary;
+    color: $--color-white;
+    text-align: center;
+    line-height: 2.5;
+    font-size: $font-size-h3;
+  }
+  @include e(container) {
+    border-left: 1px solid $--border-color-base;
+    border-right: 1px solid $--border-color-base;
+  }
+  @include e(questions) {
+  }
+
+  @include e(bottom) {
+    text-align: right;
+    background-color: #fff8f0;
+    padding: 10px 0;
+    margin-bottom: 50px;
+    .text-red{
+      color: #ff544f;
+    }
+    .btn-generate{
+      background-color: #ff8400;
+      color: #ffffff;
+      padding: 10px 30px;
+      margin-left: 20px;
+    }
+  }
+}
+
+@include b(questions) {
+  @include e(type) {
+    background-color: $--background-color-base;
+    line-height: 2.5;
+    font-size: $font-size-h3;
+    border-top: 1px solid $--border-color-base;
+    border-bottom: 1px solid $--border-color-base;
+    padding-left: 10px;
+  }
+}
+
+@include b(question){
+  margin: 0 10px;
+  padding-bottom: 15px;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $--border-color-base;
+  }
+  @include e(title) {
+    font-size: $font-size-base;
+    line-height: 3;
+  }
+}

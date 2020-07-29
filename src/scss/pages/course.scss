@@ -1,0 +1,97 @@
+//@import "../element/mixins/mixins";
+//@import "../element/common/var";
+//@import "nlconfig";
+// todo 确认他是不是没用了
+
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+
+$namespace: nl;
+
+@include b(course-card) {
+  margin-bottom: 15px;
+  //height: 300px;
+  font-size: 14px;
+}
+@include b(course) {
+  @include e(top) {
+    background-color: #f4f7fa;
+    padding:0 15px;
+    height: 40px;
+    line-height: 40px;
+    .nl-icon{
+      font-size: 22px;
+      cursor: pointer;
+    }
+  }
+  @include e(title) {
+    //background: linear-gradient(-90deg, #3b5ec6, #825fbe);
+    //width: 100%;
+    //height: 70px;
+    //color: $--color-white;
+    //font-size: $font-size-h2;
+    //line-height: 1.5;
+    //padding: 10px 15px;
+    //box-sizing: border-box;
+  }
+
+  @include e(cover) {
+    //display: inline-block;
+    float: left;
+    width: 220px;
+    height: 125px;
+    object-fit: contain;
+    //background-color: #888888;
+  }
+
+  @include e(center) {
+
+    .right{
+      margin-left: 8px;
+      margin-bottom: 10px;
+      word-break: break-all;
+    }
+  }
+  @include e(bottom ){
+    //margin: 0 5px;
+    margin-top: 10px;
+    line-height: 1.4;
+    .left{
+      //display: table-cell;
+      width: 70px;
+      float: left;
+    }
+    .right{
+      display: -moz-box;
+      display: -webkit-box;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      -webkit-line-clamp: 5;
+      line-clamp: 5;
+      -webkit-box-orient: vertical;
+      -moz-box-orient: vertical;
+      height: 95px;
+      //height: 80px;
+    }
+  }
+  @include e(detail){
+    padding: 10px;
+  }
+
+  @include e(delete) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $--background-color-base;
+    font-size: $font-size-h2;
+    flex-direction: column;
+    .top {
+      margin-bottom: 30px;
+    }
+    .nl-icon{
+      font-size: 50px;
+      margin-right: 15px;
+    }
+  }
+}

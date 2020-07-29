@@ -1,0 +1,30 @@
+/* font size
+-------------------------- */
+$font-size-h1: 30px;
+$font-size-h2: 24px;
+$font-size-h3: 18px;
+$font-size-h4: 16px;
+$font-size-base: 14px;
+
+/* font color
+-------------------------- */
+$font-color-stress: #000000;
+$font-color-notice: #333333;
+$font-color-normal: #666666;
+$font-color-danger: #ff544f;
+$font-color-highlight: #4d4dc3;
+
+/* font family
+-------------------------- */
+$font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体";
+
+
+$header-height: 75px;
+$breadcrumb-height: 59px;
+$menu-width: 70px;
+
+:export{
+  headerHeight: $header-height;
+  breadcrumbHeight: $breadcrumb-height;
+  menuWidth: $menu-width;
+}

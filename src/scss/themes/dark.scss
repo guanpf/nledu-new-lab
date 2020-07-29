@@ -1,0 +1,14 @@
+$--color-primary: #000 !default;
+
+$--color-success: #2ac853 !default;
+$--color-warning: #ff8400 !default;
+$--color-danger: #ff544f !default;
+$--color-info: #e1e1e1 !default;
+
+
+$left-menu-background-color: #1b1931;
+
+
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+@import "~element-ui/packages/theme-chalk/src/index";

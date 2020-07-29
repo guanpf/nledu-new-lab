@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="182" height="50" viewBox="0 0 182 50">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #222;
+      }
+
+      .cls-1 {
+        font-size: 26px;
+        font-family: PingFangSC-Regular, PingFang SC;
+      }
+
+      .cls-2 {
+        font-size: 12px;
+        font-family: ArialMT, Arial;
+        letter-spacing: 0.024em;
+        opacity: 0.208;
+      }
+    </style>
+  </defs>
+  <g id="logo_txt" transform="translate(41 -40.2)">
+    <text id="大数据竞赛平台" class="cls-1" transform="translate(-41 68.2)"><tspan x="0" y="0">大数据竞赛平台</tspan></text>
+    <text id="BIG_DATA_Competition_Platform" data-name="BIG DATA Competition Platform" class="cls-2" transform="translate(-40 87.2)"><tspan x="0" y="0">BIG DATA Competition Platform</tspan></text>
+  </g>
+</svg>

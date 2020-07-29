@@ -1,0 +1,44 @@
+@import "~element-ui/packages/theme-chalk/src/mixins/mixins";
+
+//@import "../element/mixins/mixins";
+//@import "../element/common/var";
+//@import "nlconfig";
+
+$namespace: nl;
+
+$left-width: 100px;
+
+@include b(select) {
+  border-left: $--border-base;
+  border-right: $--border-base;
+}
+@include b(select-row) {
+  color: $font-color-normal;
+  display: table;
+  border-top: $--border-base;
+  line-height: 3;
+  width: 100%;
+
+  &:last-child {
+    border-bottom: $--border-base;
+  }
+
+  @include e(left){
+    display: table-cell;
+    width: $left-width;
+    color: $--color-primary;
+    padding-left: 15px;
+  }
+  @include e(right) {
+    display: table-cell;
+
+  }
+  @include e(item) {
+    margin: 0 25px;
+    display: inline-block;
+    cursor: pointer;
+    @include m(active) {
+      color: $font-color-highlight;
+    }
+  }
+}

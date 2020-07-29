@@ -1,0 +1,171 @@
+.rich-text{
+  line-height: 1.5;
+  &.ppt{
+    img{
+      width: 100%;
+    }
+  }
+  p{
+    //padding: 5px;
+  }
+  .X1{
+    font-size: 24px;
+    font-weight: bolder;
+    text-align: center;
+  }
+  .X2{
+    font-size: 20px;
+
+  }
+  .X3{
+    font-size: 18px;
+  }
+  .X4{
+    font-size: 16px;
+  }
+  table{
+    margin: auto;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  table,table tr th, table tr td {
+    border:1px solid #ddd;
+    margin-bottom: 10px;
+  }
+  td{
+    padding: 0 3px;
+  }
+  img{
+    display: block;
+    margin: 0 auto 10px;
+    width: 100%;
+    height: auto;
+  }
+}
+.rich-text-manual {
+  line-height: 32px;
+  font-size: 14px;
+  color: #666666;
+
+
+  .X1{
+    display: none;
+  }
+  .X2{
+    font-size: 16px;
+    line-height: 2;
+    color: #8A8F97;
+    margin-bottom: 2px;
+  }
+  .X3{
+    font-size: 14px;
+    color: #8A8F97;
+    line-height: 2;
+  }
+  img{
+    display: block;
+    margin-bottom: 18px;
+  }
+}
+.rich-text-experiment{
+  line-height: 30px;
+  table tbody tr td,table tbody tr td p{
+    //display: none;
+    //background: none!important;
+    //text-align: left !important;
+  }
+
+  table, tr, td{
+    width: auto !important;
+    border: none !important;
+    white-space: nowrap;
+    //background-color: rgb(47,52,72)!important;
+  }
+  tr{
+    border-bottom: 1px solid #1A1D30 !important;
+  }
+  td{
+    padding: 0 3px;
+  }
+}
+
+
+// 在线资源平台预览用
+.rich-text-preview{
+  line-height: 30px;
+  img{
+    width: 100% !important;
+  }
+  table tbody tr td,table tbody tr td p{
+    //display: none;
+    //background: none!important;
+    //text-align: left !important;
+  }
+
+  table, tr, td{
+    width: auto !important;
+    border: none !important;
+    white-space: nowrap;
+    //background-color: rgb(47,52,72)!important;
+  }
+  tr{
+    border-bottom: 1px solid #1A1D30 !important;
+  }
+}
+//公有云实验手册
+.eonline-rich-text-experiment, .eonline-rich-text-course{
+  line-height: 1.5;
+  .X1{
+    font-size: 24px;
+    font-weight: bolder;
+    text-align: center;
+  }
+  .X2{
+    font-size: 20px;
+
+  }
+  .X3{
+    font-size: 18px;
+  }
+  .X4{
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+    margin: 12px 0;
+  }
+  .X4 + p{
+  }
+  table{
+    margin: 0 auto 24px;
+    border-collapse: collapse;
+    width: 100%;
+    border:1px solid #ddd;
+
+  }
+
+  table tr th, table tr td {
+    border:1px solid #ddd;
+    margin-bottom: 10px;
+  }
+  table tr:first-child{
+    background: #F1F6FF;
+  }
+  td{
+    padding: 0 3px;
+  }
+  //table,table tr th, table tr td { border:1px solid #ddd; }
+}
+.eonline-rich-text-experiment{
+  img{
+    width: 100%;
+    height: auto;
+    margin: 24px auto 24px;
+    box-shadow: 0 0 10px 0 #DCDCDC;
+  }
+}
+.eonline-rich-text-course{
+  color: #989898!important;
+  text-align: left;
+  padding: 0 33px;
+  line-height: 22px!important;
+}
