@@ -3,18 +3,29 @@
         <div class='contentBox'>
             <el-row>
                 <el-col :span="12">
-                    <span class='common-span'>院校logo:</span>
+                    <div class='upload-img'>
+                        <span class='common-span'>院校logo:</span>
+                        <el-upload
+                            class="avatar-uploader"
+                            :action="uploadUrl"
+                            :show-file-list="false"
+                            :on-success="handleAvatarSuccess"
+                            :before-upload="beforeAvatarUpload">
+                            <img v-if="customData.imageUrl" :src="customData.imageUrl" class="avatar">
+                            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                        </el-upload>
+                    </div>
                 </el-col>
                 <el-col :span="12">
                     <div class='common-label'>
                         <span class="common-span">类型:</span>
-                        <el-radio v-model="customtype" label="1">正式商户</el-radio>
-                        <el-radio v-model="customtype" label="2">测试商户</el-radio>
+                        <el-radio v-model="customData.customtype" label="1">正式商户</el-radio>
+                        <el-radio v-model="customData.customtype" label="2">测试商户</el-radio>
                     </div>
                     <div class='common-label'>
                         <span class="common-span">有效期限:</span>
                         <el-date-picker
-                            v-model="validtime"
+                            v-model="customData.validtime"
                             type="date"
                             placeholder="选择日期">
                         </el-date-picker>
@@ -25,13 +36,13 @@
                 <el-col :span="12">
                     <div class='common-label'>
                         <span class='common-span'>学校名称:</span>
-                        <el-input class='common-input' placeholder="请输入学校名称"></el-input>
+                        <el-input class='common-input' v-model="customData.schoolname" placeholder="请输入学校名称"></el-input>
                     </div>
                 </el-col>
                 <el-col :span="12">
                     <div class='common-label'>
                         <span class='common-span'>院系:</span>
-                        <el-input class='common-input' placeholder="请输入院系名称"></el-input>
+                        <el-input class='common-input' v-model="customData.department" placeholder="请输入院系名称"></el-input>
                     </div>
                 </el-col>
             </el-row>
@@ -39,13 +50,13 @@
                 <el-col :span="12">
                     <div class='common-label'>
                         <span class='common-span'>专业:</span>
-                        <el-input class='common-input' placeholder="请输入课程名称"></el-input>
+                        <el-input class='common-input' v-model="customData.coursname" placeholder="请输入课程名称"></el-input>
                     </div>
                 </el-col>
                 <el-col :span="12">
                     <div class='common-label'>
                         <span class='common-span'>班级:</span>
-                        <el-select v-model="classModel" class='common-input' placeholder="请选择班级">
+                        <el-select v-model="customData.classModel" class='common-input' placeholder="请选择班级">
                             <el-option
                             v-for="item in classList"
                             :key="item.id"
@@ -60,13 +71,13 @@
                 <el-col :span="12">
                     <div class='common-label'>
                         <span class='common-span'>联系人:</span>
-                        <el-input class='common-input' placeholder="请输入联系人"></el-input>
+                        <el-input class='common-input' v-model="customData.contacts" placeholder="请输入联系人"></el-input>
                     </div>
                 </el-col>
                 <el-col :span="12">
                     <div class='common-label'>
                         <span class='common-span'>邮箱:</span>
-                        <el-input class='common-input' placeholder="请输入邮箱"></el-input>
+                        <el-input class='common-input' v-model="customData.email" placeholder="请输入邮箱"></el-input>
                     </div>
                 </el-col>
             </el-row>
@@ -74,13 +85,13 @@
                 <el-col :span="12">
                     <div class='common-label'>
                         <span class='common-span'>电话:</span>
-                        <el-input class='common-input' placeholder="请输入电话"></el-input>
+                        <el-input class='common-input' v-model="customData.tel" placeholder="请输入电话"></el-input>
                     </div>
                 </el-col>
                 <el-col :span="12">
                     <div class='common-label'>
                         <span class='common-span'>URL:</span>
-                        <el-input class='common-input' placeholder="请输入URL"></el-input>
+                        <el-input class='common-input' v-model="customData.url" placeholder="请输入URL"></el-input>
                     </div>
                 </el-col>
             </el-row>
@@ -90,10 +101,10 @@
                         <span class='common-span'>地址:</span>
                         <el-cascader
                             class='common-input'
-                            v-model="address"
+                            v-model="customData.address"
                             :options="options"
                             @change="handleChange"></el-cascader>
-                        <el-input class="common-input" v-model="addressDetail" placeholder="请输入详细地址"></el-input> 
+                        <el-input class="common-input" v-model="customData.addressDetail" placeholder="请输入详细地址"></el-input> 
                     </div>
                 </el-col>
             </el-row>
@@ -106,7 +117,7 @@
                         type="textarea"
                         :rows="5"
                         placeholder="请输入内容"
-                        v-model="schoolproduce">
+                        v-model="customData.schoolproduce">
                         </el-input>
                     </div>
                 
@@ -114,8 +125,8 @@
             </el-row>
             <el-row>
                 <el-col :span="24">
-                    <div>
-                        <el-button>下一步</el-button>
+                    <div class='align-center'>
+                        <el-button @click="getFormData">下一步</el-button>
                     </div>
                 </el-col>
             </el-row>
@@ -124,16 +135,29 @@
     </div>
 </template> 
 <script>
+import Contest from '@/api/EUSMgr/contest'
+let contest = new Contest()
 export default {
-    name:'addcustom',
+    name:'addCustom',
     data(){
         return{
-            addressDetail:'',
-            schoolproduce:'',
-            customtype:'1',
-            validtime:'',
-            classModel:'',
-            address:'',
+            customData:{
+                imageUrl:'',
+                customtype:'',
+                validtime:'',
+                schoolname:'',
+                department:'',
+                coursname:'',
+                classModel:'',
+                contacts:'',
+                email:'',
+                tel:'',
+                url:'',
+                address:'',
+                addressDetail:'',
+                schoolproduce:'',
+            },
+            uploadUrl:'',
             classList:[
                 {
                   id:'0',
@@ -353,9 +377,31 @@ export default {
             ],
         }
     },
+    mounted(){
+        this.uploadUrl = contest.uploadUrl(5);
+    },
     methods:{
-        handleChange(value) {
+      handleChange(value) {
         console.log(value);
+      },
+      //上传院校logo
+      handleAvatarSuccess(res, file) {
+        this.customData.imageUrl = URL.createObjectURL(file.raw);
+      },
+      beforeAvatarUpload(file) {
+        const isJPG = file.type === 'image/jpeg';
+        const isLt2M = file.size / 1024 / 1024 < 2;
+
+        if (!isJPG) {
+          this.$message.error('上传头像图片只能是 JPG 格式!');
+        }
+        if (!isLt2M) {
+          this.$message.error('上传头像图片大小不能超过 2MB!');
+        }
+        return isJPG && isLt2M;
+      },
+      getFormData(){
+          console.log(this.customData)
       }
     }
 }
@@ -365,6 +411,19 @@ export default {
         margin:0 auto;
         width:80%;
         padding:30px;
+
+        .upload-box{
+            display: inline-block;
+        }
+
+        .logo-text{
+            height:128px;
+            line-height: 30px;
+            width:100px;
+            text-align: right;
+            margin-right:15px;
+            display: inline-block;
+        }
 
         .common-span{
             height:60px;
@@ -382,10 +441,41 @@ export default {
                 .common-input{
                     width:300px;
                 }
+            }  
+        .align-center{
+            text-align:center;
+            padding-top:20px;
             } 
-        .textArea{
-            height:120px;
-        }    
     }
-       
+    .upload-img{
+        display: flex;
+        justify-content: start;
+    }
+    .avatar-uploader{
+        display: inline-block;
+    }
+      .avatar-uploader .el-upload {
+        border: 1px dashed #d9d9d9;
+        border-radius: 6px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+    .avatar-uploader .el-upload:hover {
+        border-color: #409EFF;
+    }
+    .avatar-uploader-icon {
+        font-size: 28px;
+        color: #8c939d;
+        width: 128px;
+        height: 128px;
+        line-height: 128px;
+        text-align: center;
+        display: inline-block;
+    }
+    .avatar {
+        width: 128px;
+        height: 128px;
+        display: inline-block;
+    } 
 </style>  

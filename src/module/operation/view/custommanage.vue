@@ -82,7 +82,7 @@
 </template> 
 <script>
 export default {
-    name:'custommanage',
+    name:'customManage',
     data(){
         return{
             customData:[

@@ -29,40 +29,49 @@ export const constantRoutes = [
   {
     path: "/regist",
     name: "regist",
-    //name: "eres"
-    // redirect: "/index"
     component: () => import("@/components/login/view/regist")
-    // component: () => import("@/layout/loading.vue")
   },
   // 激活页面
   {
     path: "/activate",
     name: "activate",
-    //name: "eres"
-    // redirect: "/index"
     component: () => import("@/components/login/view/activate")
-    // component: () => import("@/layout/loading.vue")
   },
 
   //运维端 
     //客户管理
     {
-      path: "/custommanage",
-      name: "custommanage",
-      //name: "eres"
-      // redirect: "/index"
-      component: () => import("@/module/operation/view/custommanage")
-      // component: () => import("@/layout/loading.vue")
+      path: "/customManage",
+      name: "customManage",
+      component: () => import("@/module/operation/view/customManage")
     },
     //创建客户
     {
-      path: "/addcustom",
-      name: "addcustom",
-      //name: "eres"
-      // redirect: "/index"
-      component: () => import("@/module/operation/view/addcustom")
-      // component: () => import("@/layout/loading.vue")
+      path: "/addCustom",
+      name: "addCustom",
+      component: () => import("@/module/operation/view/addCustom")
     },
+
+  //学校端
+    // 成员管理
+    {
+      path: "/memberManage",
+      name: "memberManage",
+      component: () => import("@/module/school/view/memberManage")
+    },
+    //添加成员
+    {
+      path: "/addMember",
+      name: "addMember",
+      component: () => import("@/module/school/view/addMember")
+    },
+    //角色管理
+    {
+      path: "/roleManage",
+      name: "roleManage",
+      component: () => import("@/module/school/view/roleManage")
+    },
+
  
   // ...loginRouter,
   // ...eonline,
